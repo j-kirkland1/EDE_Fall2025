@@ -5,13 +5,11 @@ date: "2025-09-07"
 output: pdf_document
 ---
 
-Start writing...
+Start writing
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-
 
 ## R Markdown
 
