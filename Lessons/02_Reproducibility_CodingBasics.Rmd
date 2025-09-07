@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 title: "2: Reproducibility and Coding Basics"
 subtitle: "Environmental Data Analytics"
 author: "John Fay and Luana Lima | Developed by Kateri Salk"
@@ -94,7 +99,6 @@ median(5, 4, 6, 4, 6)
 4 < 5
 4 != 5
 4 == 5
-
 ```
 
 ### Objects
@@ -138,6 +142,7 @@ Within your R code, it is often useful to include notes about your workflow. So 
 # I am demonstrating a comment here. 
 
 1 + 1 # This is a simple math problem
+
 ```
 
 ### Functions
@@ -163,7 +168,6 @@ functionname <- function(){
 ```
 
 A single ingredient recipe:
-
 ```{r}
 # Write the recipe
 recipe1 <- function(x){
