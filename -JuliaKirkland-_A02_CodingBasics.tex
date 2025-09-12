@@ -1,0 +1,418 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Assignment 2: Coding Basics},
+  pdfauthor={Julia Kirkland},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assignment 2: Coding Basics}
+\author{Julia Kirkland}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection{OVERVIEW}\label{overview}
+
+This exercise accompanies the lessons/labs in Environmental Data
+Analytics on coding basics.
+
+\subsection{Directions}\label{directions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Rename this file
+  \texttt{\textless{}FirstLast\textgreater{}\_A02\_CodingBasics.Rmd}
+  (replacing \texttt{\textless{}FirstLast\textgreater{}} with your first
+  and last name).
+\item
+  Change ``Student Name'' on line 3 (above) with your name.
+\item
+  Work through the steps, \textbf{creating code and output} that fulfill
+  each instruction.
+\item
+  Be sure to \textbf{answer the questions} in this assignment document.
+\item
+  When you have completed the assignment, \textbf{Knit} the text and
+  code into a single PDF file.
+\item
+  After Knitting, submit the completed exercise (PDF file) to Canvas.
+\end{enumerate}
+
+\subsection{Basics, Part 1}\label{basics-part-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Generate a sequence of numbers from one to 55, increasing by fives.
+  Assign this sequence a name.
+\item
+  Compute the mean and median of this sequence.
+\item
+  Ask R to determine whether the mean is greater than the median.
+\item
+  Insert comments in your code to describe what you are doing.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1. }
+\NormalTok{seq1 }\OtherTok{\textless{}{-}} \FunctionTok{seq}\NormalTok{ (}\AttributeTok{from=}\DecValTok{1}\NormalTok{,}\AttributeTok{to=}\DecValTok{55}\NormalTok{,}\AttributeTok{by=}\DecValTok{5}\NormalTok{) }\CommentTok{\#used sequence function}
+\NormalTok{seq1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  1  6 11 16 21 26 31 36 41 46 51
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#2. }
+\FunctionTok{mean}\NormalTok{(seq1) }\CommentTok{\#used built{-}in function to determine mean       }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 26
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{median}\NormalTok{ (seq1) }\CommentTok{\#used built{-}in function to determine median  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 26
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\# in the console, I found that the mean=26}
+ \CommentTok{\# in the console, I found that the median=26}
+
+\CommentTok{\#3. }
+\FunctionTok{mean}\NormalTok{(seq1)}\SpecialCharTok{\textgreater{}}\FunctionTok{median}\NormalTok{(seq1) }\CommentTok{\#I asked R a logical test in order to compare the median and mean}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# [1] FALSE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Basics, Part 2}\label{basics-part-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  Create three vectors, each with four components, consisting of (a)
+  student names, (b) test scores, and (c) whether they are on
+  scholarship or not (TRUE or FALSE).
+\item
+  Label each vector with a comment on what type of vector it is.
+\item
+  Combine each of the vectors into a data frame. Assign the data frame
+  an informative name.
+\item
+  Label the columns of your data frame with informative titles.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#a) student names}
+\NormalTok{vector1 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"John"}\NormalTok{,}\StringTok{"Billy"}\NormalTok{,}\StringTok{"Hopper"}\NormalTok{,}\StringTok{"Star"}\NormalTok{) }\CommentTok{\# Vector type: Character}
+\NormalTok{vector1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "John"   "Billy"  "Hopper" "Star"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#b) test scores in \%}
+\NormalTok{vector2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{79}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{83}\NormalTok{, }\DecValTok{94}\NormalTok{) }\CommentTok{\# Vector type: Numerical}
+\NormalTok{vector2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 79 81 83 94
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#c) Scholarship or not }
+\NormalTok{vector3 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{) }\CommentTok{\# Vector type: Logical}
+\NormalTok{vector3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE FALSE  TRUE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{create\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \StringTok{"Student"}\OtherTok{=}\NormalTok{vector1,}
+  \StringTok{"Scores"}\OtherTok{=}\NormalTok{vector2, }
+  \StringTok{"Scholarship"}\OtherTok{=}\NormalTok{vector3)}
+
+\NormalTok{create\_df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Student Scores Scholarship
+## 1    John     79        TRUE
+## 2   Billy     81       FALSE
+## 3  Hopper     83        TRUE
+## 4    Star     94       FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{student\_df}\OtherTok{\textless{}{-}}\NormalTok{create\_df}
+\NormalTok{student\_df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Student Scores Scholarship
+## 1    John     79        TRUE
+## 2   Billy     81       FALSE
+## 3  Hopper     83        TRUE
+## 4    Star     94       FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(student\_df)}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{"Student Name"}\NormalTok{, }\StringTok{"Test Score in \%"}\NormalTok{,}\StringTok{"Scholarship Status"}\NormalTok{)}
+\NormalTok{student\_df}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Student Name Test Score in % Scholarship Status
+## 1         John              79               TRUE
+## 2        Billy              81              FALSE
+## 3       Hopper              83               TRUE
+## 4         Star              94              FALSE
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\tightlist
+\item
+  QUESTION: How is this data frame different from a matrix?
+\end{enumerate}
+
+\begin{quote}
+Answer: A data frame can include all different types of data, as seen
+above. It can have numerical, logical and character data. It also is
+used to create spreadsheets or CSV files. A matrix only has numerical
+data and it is a way to do math using R.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{9}
+\item
+  Create a function with one input. In this function, use
+  \texttt{if}\ldots{}\texttt{else} to evaluate the value of the input:
+  if it is greater than 50, print the word ``Pass''; otherwise print the
+  word ``Fail''.
+\item
+  Create a second function that does the exact same thing as the
+  previous one but uses \texttt{ifelse()} instead if
+  \texttt{if}\ldots{}\texttt{else}.
+\item
+  Run both functions using the value 52.5 as the input
+\item
+  Run both functions using the \textbf{vector} of student test scores
+  you created as the input. (Only one will work properly\ldots)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#10. Create a function using if...else}
+\NormalTok{pass\_check}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(score)}
+\NormalTok{\{}
+  \ControlFlowTok{if}\NormalTok{ (score}\SpecialCharTok{\textgreater{}}\DecValTok{50}\NormalTok{) }\FunctionTok{print}\NormalTok{ (}\StringTok{"pass"}\NormalTok{)}
+  \ControlFlowTok{else}\NormalTok{ \{}\FunctionTok{print}\NormalTok{ (}\StringTok{"fail"}\NormalTok{)\}}
+\NormalTok{\}}
+  
+\CommentTok{\#11. Create a function using ifelse()}
+
+\NormalTok{pass\_check\_ifelse}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(score)}
+\NormalTok{\{}\FunctionTok{ifelse}\NormalTok{(score}\SpecialCharTok{\textgreater{}}\DecValTok{50}\NormalTok{, }\StringTok{"pass"}\NormalTok{, }\StringTok{"fail"}\NormalTok{)\}}
+
+\CommentTok{\#12a. Run the first function with the value 52.5}
+\FunctionTok{pass\_check}\NormalTok{(}\FloatTok{52.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "pass"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#12b. Run the second function with the value 52.5}
+\FunctionTok{pass\_check\_ifelse}\NormalTok{(}\FloatTok{52.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "pass"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#13a. Run the first function with the vector of test scores}
+\CommentTok{\# pass\_check(vector2)}
+
+\CommentTok{\#13b. Run the second function with the vector of test scores}
+\FunctionTok{pass\_check\_ifelse}\NormalTok{(vector2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "pass" "pass" "pass" "pass"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  QUESTION: Which option of \texttt{if}\ldots{}\texttt{else}
+  vs.~\texttt{ifelse} worked? Why? (Hint: search the web for ``R
+  vectorization'')
+\end{enumerate}
+
+\begin{quote}
+Answer:\texttt{ifelse} worked. This seems to be because you can use
+vector data in this function. \texttt{if}\ldots{}\texttt{else} only
+works for singnle function values.
+\end{quote}
+
+\textbf{NOTE} Before knitting, you'll need to comment out the call to
+the function in Q13 that does not work. (A document can't knit if the
+code it contains causes an error!)
+
+\end{document}
