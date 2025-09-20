@@ -1,0 +1,93 @@
+---
+title: "Lab 3a - Exercises"
+author: "Environmental Data Analytics | John Fay and Luana Lima "
+date: "Fall 2025"
+output: pdf_document
+---
+
+## Set up the session
+- Load packaged: tidyverse, lubridate, & here
+- Import the `EPAair_PM25_NC2019_raw.csv` file
+  - Set strings to be read in as factors
+  - Set the "Site.ID" column to be read in as a factor
+- Set the date column to be a date
+
+```{r Setup}
+#Import packages
+library(tidyverse); library(lubridate); library(here)
+
+#Check workspace
+here()
+
+#Import data
+pm25 <- read.csv(
+  file = here ("./Data/Raw/EPAair_PM25_NC2019_raw.csv"),
+  stringsAsFactors = TRUE,
+  colClasses = c(Site.ID = "factor")
+)
+
+#Fix the date
+pm25$Date <- mdy(pm25$Date)
+
+```
+
+
+## Explore properties of the dataframe
+-   How many different sites are included in the data set?
+-   What is the mean daily PM2.5 concentration?
+-   In what units of are PM 2.5 concentrations reported?
+
+```{r Explore the data}
+# Compute the number of different sites
+length(unique(pm25$Site.Name))
+pm25 %>% summarize(n_sites = n_distinct(Site.Name))
+
+
+# Compute the mean and median PM 2.5 concentration
+mean(pm25$Daily.Mean.PM2.5.Concentration, na.rm = TRUE)
+
+median(pm25$Daily.Mean.PM2.5.Concentration, na.rm = TRUE)
+
+# What are the units
+
+unique(pm25$Units)
+
+# What is the date range (min and max dates)
+min(pm25$Date, na.rm = TRUE)
+
+max(pm25$Date, na.rm = TRUE)
+```
+
+
+## Plot distribution of values
+
+-   Number of samples using each different source 
+-   Distribution of daily mean concentration values
+-   Distribution of daily mean concentration, by source*
+  *   There are multiple ways to visualize this...
+
+```{r Visualize the data}
+#Number of samples using each different source 
+table(pm25$Site.Name)
+
+pm25$Site.Name <- factor(pm25$Site.Name)
+summary(pm25$Site.Name)
+
+#Distribution of daily mean concentration values
+hist(pm25$Daily.Mean.PM2.5.Concentration,
+     main = "Distribution of Daily Mean PM2.5 Concentration",
+     xlab = "PM2.5 Concentration")
+
+#Distribution of daily mean concentration, by source
+
+# Make sure Site.Name is a factor 
+pm25$Site.Name <- factor(pm25$Site.Name)
+
+boxplot(Daily.Mean.PM2.5.Concentration ~ Site.Name,
+        data = pm25,
+        main = "Distribution of Daily Mean PM2.5 by Site",
+        xlab = "Monitoring Site",
+        ylab = "PM2.5 Concentration")
+
+```
+
