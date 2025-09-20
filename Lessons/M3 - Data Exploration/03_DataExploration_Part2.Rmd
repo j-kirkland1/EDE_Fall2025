@@ -174,20 +174,20 @@ ggplot(USGS.flow.data) +
 
 Question: under what circumstances would it be beneficial to use each of these graph types (bar plot, histogram, frequency polygon, box-and whisker, violin, scatterplot)?
 
-> Answer: 
+> Answer: Bar plot is for categorical variables. A histogram is for continuous data. A frquency polygon is for continuous information. Box-and whisker plits give a five number summary that is efficient for continuous and categorical variables. Violin plot are like box and whisker, but they also show density of responses. It gives you more information about the distribution of the data. A scatterplot is benefitical to see how the data differs and where general trends happen.
 
 ## Ending discussion
 What did you learn about the USGS discharge dataset today? What separate insights did the different graph types offer?
-> Answer: 
+> Answer: Most of the height means were around 2.5. 
 
 
 How can multiple options for data exploration inform our understanding of our data?
 
-> Answer: 
+> Answer: All different graphs show all different statistics. They are all different ways of understanding and interpreting data.
 
 
 Do you see any patterns in the USGS data for the Eno River? What might be responsible for those patterns and/or relationships?
 
-> Answer: 
+> Answer: NOt too sure- maybe that the height stays consistant.
 
 
