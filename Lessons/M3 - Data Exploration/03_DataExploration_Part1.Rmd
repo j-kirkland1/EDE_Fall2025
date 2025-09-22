@@ -60,7 +60,7 @@ You need to load packages each time you start (or restart) an R coding session; 
 ```{r Setup: Loading Packages}
 #Install packages - uncomment these only when you need to install packages
 #install.packages('dplyr')
-#install.packages('ggplot')
+#install.packages('ggplot2')
 #install.packages('here')
 
 #Load the tidyverse, ggplot2, and here package
@@ -76,7 +76,7 @@ library(tidyverse)
 
 Question: What happens in the console when you load a package?
 
-> Answer: 
+> Answer: notes about the package, errors or warnings or nothing!
 
 ---
 
@@ -122,8 +122,8 @@ Commons functions to import datasets and store as data frames are *read.table()*
 ```{r Importing data}
 # Absolute file path (not recommended)
 #read.csv(
-#  file="/home/guest/EDE_Fall2024/Data/Raw/USGS_Site02085000_Flow_Raw.csv",
-#  stringsAsFactors = TRUE)
+#file="/home/guest/EDE_Fall2025/Data/Raw/USGS_Site02085000_Flow_Raw.csv",
+#stringsAsFactors = TRUE)
 
 # Relative file path (friendly for users regardless of machine)
 USGS.flow.data <- read.csv(
@@ -131,7 +131,10 @@ USGS.flow.data <- read.csv(
   stringsAsFactors = TRUE)   
 
 # What happens if we don't assign a name to our imported dataset?
-read.csv(here("./Data/Raw/USGS_Site02085000_Flow_Raw.csv"),stringsAsFactors = TRUE)
+read.csv(here("/Data/Raw/USGS_Site02085000_Flow_Raw.csv"),stringsAsFactors = TRUE)
+#it says that it cannot open the file
+
+read.csv('Data/Raw/USGS_Site02085000_Flow_Raw.csv')
 
 ```
 
@@ -144,10 +147,23 @@ Prior to running this, reset your workspace (Session->Restart R) to ensure it ru
 
 ```{r Setup}
 # Load packages
+library(dplyr)
+library(ggplot2)
+library(here)
+library(tidyverse)
 
 # Confirm working directory
+getwd()
+here()
+
 
 # Load the USGS flow data into a data frame
+
+USGS.flow.data <- read.csv(
+  file = here("./Data/Raw/USGS_Site02085000_Flow_Raw.csv"),
+  stringsAsFactors = TRUE) 
+
+read.csv('Data/Raw/USGS_Site02085000_Flow_Raw.csv')
 
 ```
 
@@ -160,16 +176,17 @@ Prior to analyzing your dataset, take a moment to understand your data. Where di
 
 Take a moment to read through the README file associated with the USGS dataset on discharge at the Eno River. Where can you find this file? How does the placement and information found in this file relate to the best practices for reproducible data analysis?
 
-> ANSWER: 
+> ANSWER: I can find this file in the metadata folder. This file is stored at the root of the data organizational structure. It gives important background information so that other collaborators can understand why the data is structured in a certain way and help contextualize the data.
 
 ### Examine properties of your dataset
 Next, have a look at your dataset. Browse your data in RStudio's viewer. Have a look at the structure of your data. Consider renaming columns. 
 
 ```{r Exploring data}
-View(USGS.flow.data)
+#View(USGS.flow.data)
 # Alternate option: click on data frame in Environment tab
 
 class(USGS.flow.data)
+names(USGS.flow.data)
 colnames(USGS.flow.data)
 
 # Rename columns
@@ -198,7 +215,7 @@ summary(USGS.flow.data)  #could point to column only with $
 ```
 
 What happened to blank cells in the spreadsheet when they were imported into R?
-> Answer: 
+> Answer: They were identified as "NA" values, or missing values.
 
 ### Identify and address issues: Missing Data
 
@@ -248,6 +265,7 @@ Alternatively, we can tell R to import it as a factor when we read the data in
 USGS.flow.data2  <- read.csv(
   file = here("./Data/Raw/USGS_Site02085000_Flow_Raw.csv"),
   stringsAsFactors = TRUE) 
+colclasses=c('site_no'='factor')
 ```
 
 
@@ -272,16 +290,20 @@ In some cases when dates are provided as integers, you may need to provide an or
 help(as.Date)
 
 # Adjust date formatting [to be done in lab session]
+
 # Write code for three differtent date formats.
+
 # An example is provided to get you started.
+
 # (code must be uncommented)
 today <- Sys.Date()
-format(today, format = "%B")
-#format(today, format = "")
+#format(today, format = "%d")
+#format(today, format = "%a")
 #format(today, format = "")
 #format(today, format = "")
 
 USGS.flow.data$datetime <- as.Date(USGS.flow.data$datetime, format = "%m/%d/%y") 
+
 ```
 
 Note that for every date prior to 1969, R has assigned the date in the 2000s rather than the 1900s. This can be fixed with an `ifelse` statement inside a function. Run through the code below and write what is happening in the comment above each line.
@@ -313,9 +335,9 @@ We just edited our raw dataset into a processed form. We may want to return to t
 
 ```{r Saving data}
 write.csv(
-  USGS.flow.data, 
-  file = here("./Data/Processed/USGS_Site02085000_Flow_Processed.csv"), 
-  row.names=FALSE)
++   USGS.flow.data, 
++   file = here("./Data/Processed/USGS_Site02085000_Flow_Processed.csv"), 
++   row.names=FALSE)
 
 ```
 
