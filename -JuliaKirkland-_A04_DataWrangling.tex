@@ -1,0 +1,629 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.54cm]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Assignment 4: Data Wrangling (Fall 2025)},
+  pdfauthor={Julia Kirkand},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Assignment 4: Data Wrangling (Fall 2025)}
+\author{Julia Kirkand}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection{OVERVIEW}\label{overview}
+
+This exercise accompanies the lessons in Environmental Data Analytics on
+Data Wrangling
+
+\subsection{Directions}\label{directions}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Rename this file
+  \texttt{\textless{}FirstLast\textgreater{}\_A04\_DataWrangling.Rmd}
+  (replacing \texttt{\textless{}FirstLast\textgreater{}} with your first
+  and last name).
+\item
+  Change ``Student Name'' on line 3 (above) with your name.
+\item
+  Work through the steps, \textbf{creating code and output} that fulfill
+  each instruction.
+\item
+  Be sure to \textbf{answer the questions} in this assignment document.
+\item
+  When you have completed the assignment, \textbf{Knit} the text and
+  code into a single PDF file.
+\item
+  Ensure that code in code chunks does not extend off the page in the
+  PDF.
+\end{enumerate}
+
+\subsection{Set up your session}\label{set-up-your-session}
+
+1a. Load the \texttt{tidyverse}, \texttt{lubridate}, and \texttt{here}
+packages into your session.
+
+1b. Check your working directory.
+
+1c. Read in all four raw data files associated with the EPA Air dataset,
+being sure to set string columns to be read in a factors. See the README
+file for the EPA air datasets for more information (especially if you
+have not worked with air quality data previously).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Add the appropriate code to reveal the dimensions of the four
+  datasets.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1a }
+
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(here)}
+
+
+
+\CommentTok{\#1b }
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/guest/EDE_Fall2025"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{here}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/guest/EDE_Fall2025"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#1c }
+\NormalTok{EPAair\_O3\_NC2018\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}
+  \AttributeTok{file=}\FunctionTok{here}\NormalTok{(}\StringTok{"Data/Raw/EPAair\_O3\_NC2018\_raw.csv"}\NormalTok{), }
+  \AttributeTok{stringsAsFactors =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+\NormalTok{EPAair\_O3\_NC2019\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}
+  \AttributeTok{file=}\FunctionTok{here}\NormalTok{(}\StringTok{"Data/Raw/EPAair\_O3\_NC2019\_raw.csv"}\NormalTok{),}
+  \AttributeTok{stringsAsFactors =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+
+\NormalTok{EPAair\_PM25\_NC2018\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}
+  \AttributeTok{file=} \FunctionTok{here}\NormalTok{(}\StringTok{"Data/Raw/EPAair\_PM25\_NC2018\_raw.csv"}\NormalTok{), }
+  \AttributeTok{stringsAsFactors =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+\NormalTok{EPAair\_PM25\_NC2019\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}
+  \AttributeTok{file=}\FunctionTok{here}\NormalTok{(}\StringTok{"Data/Raw/EPAair\_PM25\_NC2019\_raw.csv"}\NormalTok{), }
+  \AttributeTok{stringsAsFactors =} \ConstantTok{TRUE}
+\NormalTok{)}
+
+
+\CommentTok{\#2 }
+\FunctionTok{dim}\NormalTok{(EPAair\_O3\_NC2018\_raw) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9737   20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#[1] 9737   20}
+
+\FunctionTok{dim}\NormalTok{(EPAair\_O3\_NC2019\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10592    20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#[1] 10592    20}
+
+\FunctionTok{dim}\NormalTok{(EPAair\_PM25\_NC2018\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8983   20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#[1] 8983   20}
+
+\FunctionTok{dim}\NormalTok{(EPAair\_PM25\_NC2019\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8581   20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#[1] 8581   20}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{quote}
+All four datasets should have the same number of columns but unique
+record counts (rows). Do your datasets follow this pattern?
+\end{quote}
+
+\section{Yes! All data sets have 20 columns, but a unique record count
+(rows) of 9737, 10592, 8983 and
+8581.}\label{yes-all-data-sets-have-20-columns-but-a-unique-record-count-rows-of-9737-10592-8983-and-8581.}
+
+\subsection{Wrangle individual datasets to create processed
+files.}\label{wrangle-individual-datasets-to-create-processed-files.}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Change the Date columns to be date objects.
+\item
+  Select the following columns: Date, DAILY\_AQI\_VALUE, Site.Name,
+  AQS\_PARAMETER\_DESC, COUNTY, SITE\_LATITUDE, SITE\_LONGITUDE
+\item
+  For the PM2.5 datasets, fill all cells in AQS\_PARAMETER\_DESC with
+  ``PM2.5'' (all cells in this column should be identical).
+\item
+  Save all four processed datasets in the Processed folder. Use the same
+  file names as the raw files but replace ``raw'' with ``processed''.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#3}
+
+\NormalTok{EPAair\_O3\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(EPAair\_O3\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date, }\AttributeTok{format =} \StringTok{"\%m/\%d/\%Y"}\NormalTok{)}
+\FunctionTok{class}\NormalTok{(EPAair\_O3\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EPAair\_O3\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(EPAair\_O3\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date, }\AttributeTok{format =} \StringTok{"\%m/\%d/\%Y"}\NormalTok{)}
+\FunctionTok{class}\NormalTok{(EPAair\_O3\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EPAair\_PM25\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(EPAair\_PM25\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date, }\AttributeTok{format =} \StringTok{"\%m/\%d/\%Y"}\NormalTok{)}
+\FunctionTok{class}\NormalTok{(EPAair\_PM25\_NC2018\_raw}\SpecialCharTok{$}\NormalTok{Date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EPAair\_PM25\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(EPAair\_PM25\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date, }\AttributeTok{format =} \StringTok{"\%m/\%d/\%Y"}\NormalTok{)}
+\FunctionTok{class}\NormalTok{(EPAair\_PM25\_NC2019\_raw}\SpecialCharTok{$}\NormalTok{Date)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#4}
+
+\NormalTok{EPAair\_O3\_NC2018\_raw }\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_O3\_NC2018\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Date, DAILY\_AQI\_VALUE, Site.Name,}
+\NormalTok{          AQS\_PARAMETER\_DESC, COUNTY,}
+\NormalTok{          SITE\_LATITUDE, SITE\_LONGITUDE)}
+  
+\NormalTok{EPAair\_O3\_NC2019\_raw}\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_O3\_NC2019\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Date, DAILY\_AQI\_VALUE, Site.Name,}
+\NormalTok{          AQS\_PARAMETER\_DESC, COUNTY,}
+\NormalTok{          SITE\_LATITUDE, SITE\_LONGITUDE)}
+
+\NormalTok{EPAair\_PM25\_NC2018\_raw}\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_PM25\_NC2018\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Date, DAILY\_AQI\_VALUE, Site.Name,}
+\NormalTok{          AQS\_PARAMETER\_DESC, COUNTY,}
+\NormalTok{          SITE\_LATITUDE, SITE\_LONGITUDE)}
+
+\NormalTok{EPAair\_PM25\_NC2019\_raw}\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_PM25\_NC2019\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Date, DAILY\_AQI\_VALUE, Site.Name,}
+\NormalTok{          AQS\_PARAMETER\_DESC, COUNTY,}
+\NormalTok{          SITE\_LATITUDE, SITE\_LONGITUDE)}
+
+
+\CommentTok{\#5}
+
+\NormalTok{EPAair\_PM25\_NC2018\_raw }\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_PM25\_NC2018\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{AQS\_PARAMETER\_DESC =} \StringTok{"PM2.5"}\NormalTok{)}
+
+\NormalTok{EPAair\_PM25\_NC2019\_raw  }\OtherTok{\textless{}{-}}\NormalTok{ EPAair\_PM25\_NC2019\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{AQS\_PARAMETER\_DESC=} \StringTok{"PM2.5"}\NormalTok{)}
+
+\CommentTok{\#6}
+
+\FunctionTok{write.csv}\NormalTok{ ( EPAair\_O3\_NC2018\_raw, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+          \AttributeTok{file =}\StringTok{"./Data/Processed/EPAair\_O3\_NC2018\_processed"}\NormalTok{)}
+
+
+\FunctionTok{write.csv}\NormalTok{(EPAair\_O3\_NC2019\_raw, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+          \AttributeTok{file =}\StringTok{"./Data/Processed/EPAair\_O3\_NC2019\_processed"}\NormalTok{)}
+
+
+\FunctionTok{write.csv}\NormalTok{(EPAair\_PM25\_NC2018\_raw, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+          \AttributeTok{file =}\StringTok{"./Data/Processed/EPAair\_PM25\_NC2018\_processed"}\NormalTok{)}
+
+\FunctionTok{write.csv}\NormalTok{(EPAair\_PM25\_NC2019\_raw, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+          \AttributeTok{file =}\StringTok{"./Data/Processed/EPAair\_PM25\_NC2019\_processed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Combine datasets}\label{combine-datasets}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\item
+  Combine the four datasets with \texttt{rbind}. Make sure your column
+  names are identical prior to running this code.
+\item
+  Wrangle your new dataset with a pipe function (\%\textgreater\%) so
+  that it fills the following conditions:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Include only sites that the four data frames have in common:
+\end{itemize}
+
+``Linville Falls'', ``Durham Armory'', ``Leggett'', ``Hattie Avenue'',\\
+``Clemmons Middle'', ``Mendenhall School'', ``Frying Pan Mountain'',
+``West Johnston Co.'', ``Garinger High School'', ``Castle Hayne'',
+``Pitt Agri. Center'', ``Bryson City'', ``Millbrook School''
+
+(the function \texttt{intersect} can figure out common factor levels -
+but it will include sites with missing site information, which you don't
+want\ldots)
+
+\begin{itemize}
+\item
+  Some sites have multiple measurements per day. Use the
+  split-apply-combine strategy to generate daily means: group by date,
+  site name, AQS parameter, and county. Take the mean of the AQI value,
+  latitude, and longitude.
+\item
+  Add columns for ``Month'' and ``Year'' by parsing your ``Date'' column
+  (hint: \texttt{lubridate} package)
+\item
+  Hint: the dimensions of this dataset should be 14,752 x 9.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{8}
+\item
+  Spread your datasets such that AQI values for ozone and PM2.5 are in
+  separate columns. Each location on a specific date should now occupy
+  only one row.
+\item
+  Call up the dimensions of your new tidy dataset.
+\item
+  Save your processed dataset with the following file name:
+  ``EPAair\_O3\_PM25\_NC1819\_Processed.csv''
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#7 }
+
+\FunctionTok{names}\NormalTok{(EPAair\_O3\_NC2018\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"               "DAILY_AQI_VALUE"    "Site.Name"         
+## [4] "AQS_PARAMETER_DESC" "COUNTY"             "SITE_LATITUDE"     
+## [7] "SITE_LONGITUDE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(EPAair\_O3\_NC2019\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"               "DAILY_AQI_VALUE"    "Site.Name"         
+## [4] "AQS_PARAMETER_DESC" "COUNTY"             "SITE_LATITUDE"     
+## [7] "SITE_LONGITUDE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(EPAair\_PM25\_NC2018\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"               "DAILY_AQI_VALUE"    "Site.Name"         
+## [4] "AQS_PARAMETER_DESC" "COUNTY"             "SITE_LATITUDE"     
+## [7] "SITE_LONGITUDE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(EPAair\_PM25\_NC2019\_raw)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Date"               "DAILY_AQI_VALUE"    "Site.Name"         
+## [4] "AQS_PARAMETER_DESC" "COUNTY"             "SITE_LATITUDE"     
+## [7] "SITE_LONGITUDE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{EPAairqualityall }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(EPAair\_O3\_NC2018\_raw, }
+\NormalTok{      EPAair\_O3\_NC2019\_raw,}
+\NormalTok{      EPAair\_PM25\_NC2018\_raw, }
+\NormalTok{      EPAair\_PM25\_NC2019\_raw)}
+
+\CommentTok{\#8 }
+\NormalTok{EPAairquality.wrangled }\OtherTok{\textless{}{-}}\NormalTok{ EPAairqualityall }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{( Site.Name }\SpecialCharTok{\%in\%} 
+            \FunctionTok{c}\NormalTok{(}\StringTok{"Linville Falls"}\NormalTok{, }\StringTok{"Durham Armory"}\NormalTok{, }\StringTok{"Leggett"}\NormalTok{, }\StringTok{"Hattie Avenue"}\NormalTok{,  }
+                     \StringTok{"Clemmons Middle"}\NormalTok{, }\StringTok{"Mendenhall School"}\NormalTok{, }\StringTok{"Frying Pan Mountain"}\NormalTok{, }
+                     \StringTok{"West Johnston Co."}\NormalTok{, }\StringTok{"Garinger High School"}\NormalTok{, }\StringTok{"Castle Hayne"}\NormalTok{, }
+                     \StringTok{"Pitt Agri. Center"}\NormalTok{, }\StringTok{"Bryson City"}\NormalTok{, }\StringTok{"Millbrook School"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Date, Site.Name, AQS\_PARAMETER\_DESC, COUNTY) }\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{summarize}\NormalTok{(}
+  \AttributeTok{DAILY\_AQI\_VALUE =} \FunctionTok{mean}\NormalTok{(DAILY\_AQI\_VALUE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{SITE\_LATITUDE   =} \FunctionTok{mean}\NormalTok{(SITE\_LATITUDE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{SITE\_LONGITUDE  =} \FunctionTok{mean}\NormalTok{(SITE\_LONGITUDE, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{.groups=} \StringTok{"drop"} 
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+  
+\FunctionTok{mutate}\NormalTok{(}
+  \AttributeTok{Month =} \FunctionTok{month}\NormalTok{(Date),}
+  \AttributeTok{Year  =} \FunctionTok{year}\NormalTok{(Date)}
+\NormalTok{)}
+  
+  
+  
+\CommentTok{\#9}
+
+\FunctionTok{library}\NormalTok{(tidyr)}
+
+\NormalTok{EPAairquality.tidy }\OtherTok{\textless{}{-}}\NormalTok{ EPAairquality.wrangled }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{pivot\_wider}\NormalTok{(}
+  \AttributeTok{names\_from =}\NormalTok{ AQS\_PARAMETER\_DESC,}
+  \AttributeTok{values\_from =}\NormalTok{ DAILY\_AQI\_VALUE}
+\NormalTok{)}
+
+
+\CommentTok{\#10}
+
+\FunctionTok{dim}\NormalTok{(EPAairquality.tidy)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8976    9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 8976    9}
+
+
+\CommentTok{\#11}
+
+
+\FunctionTok{write.csv}\NormalTok{(EPAairquality.tidy, }\AttributeTok{row.names =} \ConstantTok{FALSE}\NormalTok{, }
+          \AttributeTok{file =}\StringTok{"./Data/Processed/EPAair\_O3\_PM25\_NC1819\_Processed.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Generate summary tables}\label{generate-summary-tables}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\item
+  Use the split-apply-combine strategy to generate a summary data frame.
+  Data should be grouped by site, month, and year. Generate the mean AQI
+  values for ozone and PM2.5 for each group. Then, add a pipe to remove
+  instances where mean \textbf{ozone} values are not available (use the
+  function \texttt{drop\_na} in your pipe). It's ok to have missing mean
+  PM2.5 values in this result.
+\item
+  Call up the dimensions of the summary dataset.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#12}
+
+\NormalTok{EPAairquality.summary }\OtherTok{\textless{}{-}}\NormalTok{ EPAairquality.tidy }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(Site.Name, Month, Year) }\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{summarize}\NormalTok{(}
+ \AttributeTok{meanPM2.5 =} \FunctionTok{mean}\NormalTok{(PM2}\FloatTok{.5}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+ \AttributeTok{meanOzone=} \FunctionTok{mean}\NormalTok{(Ozone, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{.groups=} \StringTok{"drop"} 
+\NormalTok{  )}\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{drop\_na}\NormalTok{(meanOzone)}
+
+\CommentTok{\#13}
+
+\FunctionTok{dim}\NormalTok{(EPAairquality.summary)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 239   5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#[1] 239   5}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  Why did we use the function \texttt{drop\_na} rather than
+  \texttt{na.omit}? Hint: replace \texttt{drop\_na} with
+  \texttt{na.omit} in part 12 and observe what happens with the
+  dimensions of the summary date frame.
+\end{enumerate}
+
+\begin{quote}
+Answer: \texttt{drop\_na} allows a coder to drop a row with NA, and
+specify which colomn they want that drop to happen in. I specified
+dropping NA in the meanOzone colomn. na.omit tells R to drop all NAs, in
+all colomns, therefore it made the specs smaller.
+\end{quote}
+
+\end{document}
