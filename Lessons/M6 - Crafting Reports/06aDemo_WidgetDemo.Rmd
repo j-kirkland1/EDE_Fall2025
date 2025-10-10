@@ -1,0 +1,21 @@
+---
+title: Interactive Rmd
+output: html_document
+runtime: shiny
+---
+  
+```{r, echo = FALSE}
+install.packages("shiny")
+library(shiny)
+
+numericInput("my_widget",
+"How many cars?", 5)
+
+
+renderTable({
+head(cars, input$my_widget)
+  
+  
+})
+```
+
