@@ -3,12 +3,12 @@ title: "A06 - Crafting Reports"
 author: "Julia Kirkland"
 date: "Fall 2025"
 output:
-  pdf_document: default
-  toc: true
-editor_options: 
+  pdf_document:
+    toc: true
+editor_options:
   chunk_output_type: console
-    
 ---
+
 \listoffigures 
 
 ## Objectives:
@@ -128,7 +128,7 @@ knitr::kable(summary_Ozone,
 ## Task 4: Plots
 
 Below this paragraph, but above the horizonal line (`---`), create two separate code chunks that create boxplots of the distribution of Ozone levels by month using, one for only records collected in 2018 and one for records in 2019. Customize the chunk options such that the final figures are displayed but not the code used to generate the figures. In addition, align the plots on the left side of the page and set the figure heights so both plots fit on the same page with minimal space remaining. Lastly, add a `fig.cap` chunk option to add a caption (title) to your plot that will display underneath the figure.
-```{r echo=FALSE, warning=FALSE, fig.align="left", fig.cap="Ozone Levels by Month (2018)", fig.height=4, fig.width=9}
+```{r echo=FALSE, warning=FALSE, fig.align="left", fig.cap="2018 monthly Ozone levels", fig.height=4, fig.width=9}
 # boxplots of the distribution of Ozone levels by month using, one for only records collected in 2018
 
 
@@ -141,9 +141,9 @@ ozonelevels2018 <- epa_data %>%
   geom_boxplot() +
   scale_x_discrete(drop = FALSE) +
   labs(
-    title = "Ozone Levels by Month (2018)",
+    title = "Monthly Ozone concentrations (2018)",
     x = "Month",
-    y = "Ozone"
+    y = "Concentration (µg/m3)"
   )
 
 print(ozonelevels2018)
@@ -151,7 +151,7 @@ print(ozonelevels2018)
 
 ```
 
-```{r echo=FALSE, warning=FALSE, fig.align="left", fig.cap="Ozone Levels by Month (2019)", fig.height=4, fig.width=9}
+```{r echo=FALSE, warning=FALSE, fig.align="left", fig.cap="2019 monthly Ozone levels", fig.height=4, fig.width=9}
 
 # boxplots of the distribution of Ozone levels by month using, one for only records collected in 2019
 
@@ -164,9 +164,9 @@ ozonelevels2019 <- epa_data %>%
   geom_boxplot() +
   scale_x_discrete(drop = FALSE) +
   labs(
-    title = "Ozone Levels by Month (2019)",
+    title = "Monthly Ozone concentrations (2019)",
     x = "Month",
-    y = "Ozone"
+    y = "Concentration (µg/m3)"
   )
 print(ozonelevels2019)
 
