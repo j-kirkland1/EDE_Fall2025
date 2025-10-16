@@ -7,6 +7,7 @@ geometry: margin=2.54cm
 editor_options: 
   chunk_output_type: console
 ---
+\listoffigures
 
 ## Objectives
 1. Perform simple data visualizations in the R package `ggplot`
@@ -74,10 +75,11 @@ Here are some commonly used aesthetic types that can be manipulated in ggplot:
 * shape
 * size
 * transparency
+\newpage
 
 ### Plotting continuous variables over time: Scatterplot and Line Plot
 
-```{r, fig.height = 3, fig.width = 4, warning = FALSE}
+```{r, fig.height = 3, fig.width = 5, warning = FALSE, fig.cap="Scatterplot"}
 # Scatterplot
 ggplot(EPAair, aes(x = Date, y = Ozone)) + 
   geom_point()
@@ -128,7 +130,7 @@ print(PMplot.line)
 
 ### Plotting the relationship between two continuous variables: Scatterplot
 
-```{r, fig.height = 3, fig.width = 4, warning = FALSE}
+```{r, fig.height = 3, fig.width = 4, warning = FALSE, fig.cap="Another scatterplot"}
 # Scatterplot
 lightvsDO <- 
   ggplot(PeterPaul.chem.nutrients, aes(x = irradianceWater, y = dissolvedOxygen)) +
