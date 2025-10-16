@@ -104,7 +104,6 @@ summary_Ozone <- epa_data %>%
 
 
 ```
-\newpage
 
 ```{r echo=FALSE}
 #Use the `kable` function to produce the 2 tables in markdown format
@@ -183,5 +182,6 @@ Add a table of contents and list of figures to your document and knit to a PDF. 
 
 ## Git Repository
 
+[mylink] (https://github.com/j-kirkland1/EDE_Fall2025)
 
 I did not use AI in this assignment- Julia Kirkland October 16, 2025.
