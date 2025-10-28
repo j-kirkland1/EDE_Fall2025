@@ -83,7 +83,7 @@ O3.onesample2
 
 Write a sentence or two about the results of this test. Include both the results of the test and an interpretation that puts the findings in context of the research question.
 
-> 
+> A t-test was done to see if the mean ozone was less than 50.The mean ozone was less than 50. Therefore the results were significant, showing that we reject the null hypotehsis that the mu was larger than 50.
 
 ### Two-sample t-test
 

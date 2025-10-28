@@ -112,7 +112,7 @@ print(Litter.Totals.plot)
 
 What information does the output give us? How might we report this information in a report?
 
-> 
+> A one-way ANOVA was conducted to test whether total litter biomass differed among plots at Niwot Ridge LTER.
 
 ## TWO-WAY ANOVA
 
