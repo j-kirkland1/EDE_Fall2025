@@ -82,7 +82,7 @@ Time series datasets come with several caveats, which need to be addressed in or
 
 River discharge is measured daily at the Eno River gage station. Since we are working with one location measured over time, this will make a great example dataset for time series analysis. 
 
-Let's look at what the dataset contains for mean daily discharge.
+Let's look at what the dataset contains for daily discharge.
 
 ```{r}
 ggplot(EnoDischarge, aes(x = datetime, y = discharge.mean)) +
