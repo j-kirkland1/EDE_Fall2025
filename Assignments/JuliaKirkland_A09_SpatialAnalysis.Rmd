@@ -144,7 +144,7 @@ ggplot() +
   geom_sf(data = counties_sf,color='gray') + 
   geom_sf(data = NWIS_gagelocations_sf, color='blue', fill='yellow') +
   labs(title = "NWIS Gage Locations in Nebraska",
-         subtitle= "Julia Kirkland")
+         subtitle= "Julia Kirkland is awesome")
 
 ```
 
