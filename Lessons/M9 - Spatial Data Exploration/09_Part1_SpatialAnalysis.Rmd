@@ -199,7 +199,7 @@ Let's explore:
 the_buffer <- sf_GraingerHall %>% st_buffer(1)
 
 #View the result
-mapview(the_buffer)
+mapview(the_buffer) +mapview(sf_GraingerHall, color="red")
 ```
 
 A bit odd, no? Why is the circle so big? What is the units of '1'? And why is it oval, not a circle? This has much to do with the fact that the geometric units of our feature are measured in angular units (degrees) and not familiar planar ones (like meters or feet). And that's because latitude and longitude measure location on a sphere, and we like doing calculations on a plane...

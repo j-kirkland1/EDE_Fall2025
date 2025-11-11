@@ -41,7 +41,7 @@ library(tidyverse);library(here);
 library(sf);library(mapview);library(leaflet)
 
 #A new package: arcgis -- discussed below
-install.packages('arcgis', repos = c('https://r-arcgis.r-universe.dev', 'https://cloud.r-project.org'))
+#install.packages('arcgis', repos = c('https://r-arcgis.r-universe.dev', 'https://cloud.r-project.org'))
 library(arcgis)
 
 #Check the working directory
@@ -125,6 +125,8 @@ culster_map <- leaflet(turtles) %>%
   )
 
 #Show the map
+
+
 mapview(culster_map)
 
 #Saved the map as an HTML file
